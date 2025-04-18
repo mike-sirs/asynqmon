@@ -90,3 +90,17 @@ spec:
       protocol: TCP
       port: 80
       targetPort: http
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: redis-secrets-asynq
+data:
+  REDIS_CA_CERT: >-
+    <base64_bundle>
+  REDIS_CERT: >-
+    <base64_cert>
+  REDIS_CERT_KEY: >-
+    <base64_key>
+  REDIS_URL: <Base64_url of format redis://default:PASSWORD@redis-host.0000.us-central1-1.gce.cloud.redislabs.com:PORT>
+type: Opaque
